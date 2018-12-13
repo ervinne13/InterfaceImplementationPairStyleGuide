@@ -85,4 +85,4 @@ public interface CustomerPersistence
     void deleteById(int id);
 }
 ```
-void delete(Customer customer);
+
