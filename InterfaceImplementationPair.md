@@ -66,7 +66,7 @@ So something like below would work seemlessly
 ```java
 public class PayrollProcessorController {
     // Here, we just let the framework inject things for us, no factories :D
-    public function handleProcess(PayrollProcessorService $srvc) {
+    public function handleProcess(PayrollProcessorService srvc) {
         // ....
     }
 }
