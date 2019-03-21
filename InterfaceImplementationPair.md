@@ -57,6 +57,21 @@ private Customer customer = CustomerProvider:getById(id);
 private Customer customer = customerRepo.getById(id);
 ```
 
+__Abusing Your Framework's Container__
+
+The best approach I can think of is to just use the framework's automated dependency injection (if it's available in whatever you're using). This way __we can ditch creating factories and providers entirely__ and still prevent the client classes from manually instantiating (service location) our service classes.
+
+So something like below would work seemlessly
+
+```java
+public class PayrollProcessorController {
+    // Here, we just let the framework inject things for us, no factories :D
+    public function handleProcess(PayrollProcessorService $srvc) {
+        // ....
+    }
+}
+```
+
 __Some Notes in Object Lookup__
 
 I also like to avoid repositories as these grow very large overtime (if they do grow). So a distinction is a lot of times necessary, especially when dealing with integration with other systems.
